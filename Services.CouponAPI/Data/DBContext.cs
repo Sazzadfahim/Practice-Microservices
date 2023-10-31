@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Services.CouponAPI.Models;
+using Services.CouponAPI.Entity.Models;
 
 namespace Services.CouponAPI.Data
 {
