@@ -68,16 +68,16 @@ namespace Services.CouponAPI.Controllers
         {
             try
             {
-                Coupon coupon = _context.Coupons.FirstOrDefault(u => u.CouponCode == name);
-                if(coupon == null)
-                {
-                    _response.IsSuccess = false;
-                    _response.DisplayMessage = "Coupon Not Available";
-                    return _response;
-                }
+                Coupon coupon = _context.Coupons.First(u => u.CouponCode.ToLower() == name.ToLower());
+                //if(coupon == null)
+                //{
+                //    _response.IsSuccess = false;
+                //    _response.DisplayMessage = "Coupon Not Available";
+                //    return _response;
+                //}
                 _response.Result = _mapper.Map<CouponDto>(coupon);
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 _response.IsSuccess = false;
                 _response.DisplayMessage = e.Message;
